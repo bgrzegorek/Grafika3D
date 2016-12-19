@@ -27,18 +27,22 @@ public class MouseCameraControl : MonoBehaviour
     void Start()
     {
         transform.position = new Vector3(1000.0f, 100.0f, 1000.0f);
-        RenderSettings.skybox = noSkybox;
+       // RenderSettings.skybox = noSkybox;
+
         water = GameObject.Find("Water");
         refraction = GameObject.Find("Refraction");
 
         // defaultFog = RenderSettings.fog;        // zrobić defaulotow w zależności od położenia kamery
-        underwaterFogDensity = 0.002f;
+        underwaterFogDensity = 0.0015f;
         underwaterFogColor = new Color(0.13f, 0.56f, 0.56f, 0f);
         underwaterFogColor = new Color32(60, 100, 120, 255);
         RenderSettings.fogMode = FogMode.ExponentialSquared;
         RenderSettings.fogColor = underwaterFogColor;
         RenderSettings.fogDensity = underwaterFogDensity;
-       // RenderSettings.fog = defaultFog;
+        // RenderSettings.fog = defaultFog;
+
+        RenderSettings.fog = true;
+        refraction.SetActive(true);
     }
 
     void Update()
@@ -46,17 +50,18 @@ public class MouseCameraControl : MonoBehaviour
         RenderSettings.fogColor = underwaterFogColor;
         RenderSettings.fogDensity = underwaterFogDensity;
 
+
         yPosition = transform.position.y;
         rotationX += Input.GetAxis("Mouse X") * lookSpeed;
         rotationY += Input.GetAxis("Mouse Y") * lookSpeed;
         rotationY = Mathf.Clamp(rotationY, -90, 90);
-        
+      
         transform.localRotation = Quaternion.AngleAxis(rotationX, Vector3.up);
         transform.localRotation *= Quaternion.AngleAxis(rotationY, Vector3.left);
 
         transform.position += transform.forward * moveSpeed * Input.GetAxis("Vertical");
         transform.position += transform.right * moveSpeed * Input.GetAxis("Horizontal");
-
+/*
         if (transform.position.y < underwaterLevel)
         {
             //water.SetActive(false);
@@ -70,7 +75,7 @@ public class MouseCameraControl : MonoBehaviour
             refraction.SetActive(false);
             RenderSettings.fog = false;
             //RenderSettings.skybox = defaultSkybox;
-        }
+        }*/
     }
 
 }
