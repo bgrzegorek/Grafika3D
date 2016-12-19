@@ -13,8 +13,8 @@ public class MouseCameraControl : MonoBehaviour
     public Color underwaterFogColor;
     public float underwaterFogDensity;// = RenderSettings.fogDensity;
 
-    public float lookSpeed = 5.0f;
-    public float moveSpeed = 3.0f;
+    public float lookSpeed = 1.0f;
+    public float moveSpeed = 1.0f;
     public float rotationX = 0.0f;
     public float rotationY = 0.0f;
 
