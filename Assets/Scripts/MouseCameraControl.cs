@@ -26,14 +26,14 @@ public class MouseCameraControl : MonoBehaviour
 
     void Start()
     {
-        transform.position = new Vector3(1000.0f, 100.0f, 1000.0f);
+        transform.position = new Vector3(500.0f, 100.0f, 500.0f);
        // RenderSettings.skybox = noSkybox;
 
         water = GameObject.Find("Water");
         refraction = GameObject.Find("Refraction");
 
-        // defaultFog = RenderSettings.fog;        // zrobić defaulotow w zależności od położenia kamery
-        underwaterFogDensity = 0.0015f;
+        // defaultFog = RenderSettings.fog;
+        underwaterFogDensity = 0.003f;
         underwaterFogColor = new Color(0.13f, 0.56f, 0.56f, 0f);
         underwaterFogColor = new Color32(60, 100, 120, 255);
         RenderSettings.fogMode = FogMode.ExponentialSquared;
@@ -61,6 +61,8 @@ public class MouseCameraControl : MonoBehaviour
 
         transform.position += transform.forward * moveSpeed * Input.GetAxis("Vertical");
         transform.position += transform.right * moveSpeed * Input.GetAxis("Horizontal");
+
+
 /*
         if (transform.position.y < underwaterLevel)
         {
