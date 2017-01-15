@@ -24,6 +24,7 @@ ModelImporter:
     100032: Bone_015
     100034: Plane
     100036: //RootNode
+    100038: Cube
     400000: Armature
     400002: Bone
     400004: Bone_001
@@ -43,14 +44,21 @@ ModelImporter:
     400032: Bone_015
     400034: Plane
     400036: //RootNode
+    400038: Cube
     2300000: Plane
     2300002: //RootNode
+    2300004: Cube
     3300000: Plane
     3300002: //RootNode
+    3300004: Cube
     4300000: NurbsPath
     4300002: Plane
+    4300004: Cube
     7400000: Default Take
+    7400002: ArmatureAction
+    7400004: Action
     9500000: //RootNode
+    13700000: Plane
   materials:
     importMaterials: 1
     materialName: 0
@@ -97,6 +105,7 @@ ModelImporter:
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
+    serializedVersion: 2
     human: []
     skeleton: []
     armTwist: 0.5
@@ -107,7 +116,10 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 2
   humanoidOversampling: 1
