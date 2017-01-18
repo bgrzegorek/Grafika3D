@@ -21,7 +21,7 @@ public class GlobalFlock : MonoBehaviour {
 		for(int i = 0; i < numberOfFish; i++)
         {
             Vector3 pos = new Vector3(Random.Range(CENTER_X - MOVEMENT_RANGE, CENTER_X + MOVEMENT_RANGE),
-                                      Random.Range(25, 150),
+                                      Random.Range(10, 20),
                                       Random.Range(CENTER_Z - MOVEMENT_RANGE, CENTER_Z + MOVEMENT_RANGE));
             allFish[i] = (GameObject)Instantiate(fishPrefarb, pos, Quaternion.identity);
         }
@@ -32,7 +32,7 @@ public class GlobalFlock : MonoBehaviour {
 		if(Random.Range(0, 10000) < 50)
         {
             goalPosition = new Vector3(Random.Range(0.0f, CENTER_X + MOVEMENT_RANGE),
-                                       Random.Range(25, 150),
+                                       Random.Range(10, 20),
                                        Random.Range(0.0f, 2 * CENTER_Z + MOVEMENT_RANGE));
 
             Debug.Log("Goal Position: " + goalPosition.ToString());
