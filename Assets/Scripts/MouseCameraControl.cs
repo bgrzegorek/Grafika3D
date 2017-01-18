@@ -5,7 +5,6 @@ public class MouseCameraControl : MonoBehaviour
 {
 
     //Define variable
-    public int underwaterLevel = 40;
     public float yPosition;
 
     //The scene's default fog settings
@@ -26,20 +25,16 @@ public class MouseCameraControl : MonoBehaviour
 
     void Start()
     {
-        transform.position = new Vector3(500.0f, 100.0f, 500.0f);
-       // RenderSettings.skybox = noSkybox;
-
+        transform.position = new Vector3(500.0f, 250.0f, 50.0f);
         water = GameObject.Find("Water");
         refraction = GameObject.Find("Refraction");
 
-        // defaultFog = RenderSettings.fog;
-        underwaterFogDensity = 0.003f;
+        underwaterFogDensity = 0.002f;
         underwaterFogColor = new Color(0.13f, 0.56f, 0.56f, 0f);
         underwaterFogColor = new Color32(60, 100, 120, 255);
         RenderSettings.fogMode = FogMode.ExponentialSquared;
         RenderSettings.fogColor = underwaterFogColor;
         RenderSettings.fogDensity = underwaterFogDensity;
-        // RenderSettings.fog = defaultFog;
 
         RenderSettings.fog = true;
         refraction.SetActive(true);
@@ -62,22 +57,6 @@ public class MouseCameraControl : MonoBehaviour
         transform.position += transform.forward * moveSpeed * Input.GetAxis("Vertical");
         transform.position += transform.right * moveSpeed * Input.GetAxis("Horizontal");
 
-
-/*
-        if (transform.position.y < underwaterLevel)
-        {
-            //water.SetActive(false);
-            refraction.SetActive(true);
-            RenderSettings.fog = true;
-            //RenderSettings.skybox = noSkybox;
-        }
-        else
-        {
-           // water.SetActive(true);
-            refraction.SetActive(false);
-            RenderSettings.fog = false;
-            //RenderSettings.skybox = defaultSkybox;
-        }*/
     }
 
 }
