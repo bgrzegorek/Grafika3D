@@ -4,7 +4,7 @@ using System.Collections;
 public class AnimatedProjector : MonoBehaviour
 {
     public float fps = 30.0f;
-    private Texture2D[] framesBlackAndWhite, framesBlackAndWhite2, framesLightBlue, framesBlue, framesDarkBLue;
+    private Texture2D[] framesBlackAndWhite, framesBlackAndWhite2;
     public Texture2D[] frames;
     private int frameIndex;
     private Projector projector;
@@ -12,21 +12,16 @@ public class AnimatedProjector : MonoBehaviour
 
     public enum RefractionStyle
     {
-        blackAndWhite, blackAndWhite2, lightBlue, blue, darkBlue
+        blackAndWhite, blackAndWhite2
     }
 
     public RefractionStyle refractionStyle;
-    private string path;
 
     void Start()
     {
         projector = GetComponent<Projector>();
         framesBlackAndWhite = Resources.LoadAll<Texture2D>("caustics");
         framesBlackAndWhite2 = Resources.LoadAll<Texture2D>("caustics2");
-        framesLightBlue = Resources.LoadAll<Texture2D>("caustics_light_blue");
-        framesBlue = Resources.LoadAll<Texture2D>("caustics_blue");
-        framesDarkBLue = Resources.LoadAll<Texture2D>("caustics_dark_blue");
-        refractionStyle = RefractionStyle.blackAndWhite2;
         frames = framesBlackAndWhite2;
         frameIndex = 0;
         InvokeRepeating("NextFrame", 0, 1 / fps);
@@ -39,24 +34,6 @@ public class AnimatedProjector : MonoBehaviour
             case RefractionStyle.blackAndWhite: {
                     frames = framesBlackAndWhite;
                     break;
-                }
-            case RefractionStyle.lightBlue:
-                {
-                    frames = framesLightBlue; ;
-                    break;
-
-                }
-            case RefractionStyle.blue:
-                {
-                    frames = framesBlue;
-                    break;
-
-                }
-            case RefractionStyle.darkBlue:
-                {
-                    frames = framesDarkBLue;
-                    break;
-
                 }
             case RefractionStyle.blackAndWhite2:
                 {
