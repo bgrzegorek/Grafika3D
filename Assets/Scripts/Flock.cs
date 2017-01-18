@@ -28,16 +28,6 @@ public class Flock : MonoBehaviour {
          anim[animName].speed = 1.0f;
         anim.Play(animName);
         float len = anim[animName].length;
-        Debug.Log("Anim length: " + len);
-        
-        /*
-        Animation anim = GetComponent<Animation>();
-        GameObject fish = GetComponent<GameObject>();
-        Debug.Log("fish name: " + fish.name);
-        Debug.Log("Animation: " + anim);
-        float startPoint = Random.Range(0f, 1f);*/
-        //anim.Play("test", -1, startPoint);
-
     }
 
     // Update is called once per frame
