@@ -3,22 +3,45 @@ using System.Collections;
 using UnityEngine;
 
 public class Flock : MonoBehaviour {
+    
 
     public float speed = 1.0f;
-    float rotationSpeed = 0.5f;
+    public float rotationSpeed = 0.5f;
     Vector3 averageHeading;
     Vector3 averagePosition;
-    float neighbourDistane = 150.0f;
+    public float neighbourDistane = 150.0f;
 
     bool turning = false;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    Animation anim;
+
+    void Start () {
         speed = speed * Random.Range(0.8f, 1.0f);
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        anim = GetComponent<Animation>();
+        float startPoint = Random.Range(0f, 2.5f);
+
+        //Debug.Log("GO name: " + name + ";  Animation name: " + anim.name);
+        string animName = "Armature|ArmatureAction";
+
+         anim[animName].time = startPoint;
+         anim[animName].speed = 1.0f;
+        anim.Play(animName);
+        float len = anim[animName].length;
+        Debug.Log("Anim length: " + len);
+        
+        /*
+        Animation anim = GetComponent<Animation>();
+        GameObject fish = GetComponent<GameObject>();
+        Debug.Log("fish name: " + fish.name);
+        Debug.Log("Animation: " + anim);
+        float startPoint = Random.Range(0f, 1f);*/
+        //anim.Play("test", -1, startPoint);
+
+    }
+
+    // Update is called once per frame
+    void Update () {
         
         if(Vector3.Distance(transform.position, GlobalFlock.vectorZero) >= GlobalFlock.MOVEMENT_RANGE)
         {

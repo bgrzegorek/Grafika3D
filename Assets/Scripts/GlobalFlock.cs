@@ -18,12 +18,16 @@ public class GlobalFlock : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		for(int i = 0; i < numberOfFish; i++)
+        for (int i = 0; i < numberOfFish; i++)
         {
             Vector3 pos = new Vector3(Random.Range(CENTER_X - MOVEMENT_RANGE, CENTER_X + MOVEMENT_RANGE),
                                       Random.Range(10, 20),
                                       Random.Range(CENTER_Z - MOVEMENT_RANGE, CENTER_Z + MOVEMENT_RANGE));
-            allFish[i] = (GameObject)Instantiate(fishPrefarb, pos, Quaternion.identity);
+        
+            GameObject go = Instantiate(fishPrefarb, pos, Quaternion.identity);
+             
+            
+            allFish[i] = go;
         }
 	}
 	
