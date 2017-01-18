@@ -14,7 +14,7 @@ class ChangeCamera : MonoBehaviour {
 
     void Update() {
         // Check for input and swap accordingly
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetButtonDown("ChangeCamera"))
         {
             camera1.enabled = !camera1.enabled;
             camera2.enabled = !camera2.enabled;
